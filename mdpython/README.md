@@ -17,10 +17,13 @@ raid arrays at <http://localhost:8080>.
 
 ### Resources
 
-* More inspiration on how to build a Python web app
-  and package it for docker can be found in the blog
-  post [Efficient management Python projects dependencies with Docker][ref-1]
+* The source for this docker image is to be found on Github:
+  [pklaus/docker-deployments → mdpython][source].
+* More inspiration on how to package a Python web app
+  for docker can be found in the blog post
+  [Efficient management Python projects dependencies with Docker][ref-1].
 
 [mdpython]: https://github.com/pklaus/mdpython
+[source]: https://github.com/pklaus/docker-deployments/tree/master/mdpython
 [ref-1]: http://jpetazzo.github.io/2013/12/01/docker-python-pip-requirements/
 
