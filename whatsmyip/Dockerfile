@@ -1,26 +1,25 @@
 #Dockerfile
 
-FROM pklaus/uptodatearch
+FROM alpine:3.7
 
 MAINTAINER Philipp Klaus "philipp.l.klaus@web.de"
 
-RUN pacman --noconfirm -Sy python git
+RUN apk add --update --no-cache \
+    git \
+    python3
 
-RUN groupadd -r swuser -g 501 && \
-useradd -u 501 -r -g swuser -d /home/swuser -s /sbin/nologin -c "Docker image user" swuser
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
-#ADD . /home/swuser/
-#COPY ./ /home/swuser/app
-COPY ./*whatsmyip-server.sh /home/swuser/
+RUN addgroup -S swuser -g 501 \
+ && adduser  -S -u 501 -g swuser -h /home/swuser -s /sbin/nologin swuser
 RUN chown -R swuser:swuser /home/swuser
 
 USER swuser
 ENV HOME /home/swuser
 WORKDIR /home/swuser/
-RUN /home/swuser/setup-whatsmyip-server.sh
+RUN git clone https://github.com/pklaus/WhatsMyIP.git
 
 EXPOSE 8080
 
 #CMD ["--port 27017"]
-ENTRYPOINT ["/home/swuser/start-whatsmyip-server.sh"]
-
+ENTRYPOINT cd ./WhatsMyIP; ./whatsmyip.py --host :: --port 8080 --consider-xrealip
