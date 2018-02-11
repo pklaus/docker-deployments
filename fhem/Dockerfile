@@ -12,8 +12,8 @@ RUN set -ex \
     bash \
     ca-certificates \
     perl \
-    perl-dbi \
     perl-dbd-pg \
+    perl-dbi \
     perl-device-serialport \
     perl-io-socket-ssl \
     perl-libwww \
