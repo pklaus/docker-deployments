@@ -27,7 +27,7 @@ RUN set -ex \
     adduser -D -G fhem -h /opt/fhem -u 1000 fhem \
  && chown -R fhem:fhem /opt/fhem \
  ## Modify the configuration file forceing fhem to keep in foreground:
- && echo 'attr global nofork 1\n' >> /opt/fhem/fhem.cfg
+ && echo -e 'attr global nofork 1\n' >> /opt/fhem/fhem.cfg
 
 WORKDIR /opt/fhem
 USER fhem
