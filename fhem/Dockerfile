@@ -15,8 +15,11 @@ RUN set -ex \
     perl-dbd-pg \
     perl-dbi \
     perl-device-serialport \
+    perl-digest-crc \
+    perl-digest-md5 \
     perl-io-socket-ssl \
     perl-libwww \
+    perl-json \
     perl-xml-simple \
  ## Move the folder to the right place:
  && mv /opt/fhem-${FHEM_VERSION} /opt/fhem \
