@@ -15,6 +15,8 @@ RUN set -ex \
     bash \
     ca-certificates \
     perl \
+    perl-crypt-rijndael \
+    perl-data-dumper \
     perl-dbd-pg \
     perl-dbi \
     perl-device-serialport \
