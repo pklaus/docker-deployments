@@ -6,7 +6,7 @@ First, get the default config file from the image:
 
 ```
 fhem_container=$(docker create pklaus/fhem:5.8)
-docker cp $fhem_container:/opt/fhem/fhem.cfg - > fhem.cfg
+docker cp $fhem_container:/opt/fhem/fhem.cfg ./fhem.cfg
 docker rm -v $fhem_container
 ```
 
