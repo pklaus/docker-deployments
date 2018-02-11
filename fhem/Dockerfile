@@ -1,5 +1,8 @@
 FROM alpine:3.7
 ENV FHEM_VERSION 5.8
+MAINTAINER Philipp Klaus <philipp.l.klaus@web.de>
+EXPOSE 8083 8084 8085 7072
+# VOLUMEs: /opt/fhem/log (also mount /opt/fhem/fhem.cfg from a file on your host!)
 
 ## Add FHEM. Download it to the working directory before building:
 ## wget https://fhem.de/fhem-${FHEM_VERSION}.tar.gz
@@ -32,8 +35,8 @@ RUN set -ex \
 WORKDIR /opt/fhem
 USER fhem
 
-EXPOSE 8083 8084 8085 7072
 VOLUME /opt/fhem/log
-# Doesn't work for a file:
+# Doesn't work for a file, needs to be specified as --volume with absolute path when creating container:
 #VOLUME /opt/fhem/fhem.cfg
+
 CMD ["/opt/fhem/fhem.pl", "fhem.cfg"]
